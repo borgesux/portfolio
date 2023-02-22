@@ -1,21 +1,30 @@
 import React from 'react';
-import './App.css';
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import Routes from './routes';
+// import './App.css';
+
+// import Routes from '@components/routes';
+// import Theme from 'theme';
+
+import { CssBaseline } from '@mui/material';
+import { ThemeProvider  } from '@mui/material/styles';
+import { ThemeProvider as ThemeProviderLegacy } from "@mui/styles";
+
 import Theme from 'theme';
+import Routes from '@components/routes';
+
 
 const App: React.FC = () => {
   return(
     <ThemeProvider theme={Theme}>
-      <CssBaseline/> 
-        App running...
-      <Routes></Routes>
+      <ThemeProviderLegacy theme={Theme}>
+        <CssBaseline/> 
+          App running...
+        <Routes></Routes>
+      </ThemeProviderLegacy>
     </ThemeProvider>
   )
 }
 
 export default App;
-
 
 
 
