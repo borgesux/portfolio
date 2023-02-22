@@ -5,9 +5,8 @@ import { ThemeProvider  } from '@mui/material/styles';
 import { ThemeProvider as ThemeProviderLegacy } from "@mui/styles";
 
 // import Theme from 'theme';
-import Routes from './components/routes';
+import Routes from '@components/routes';
 import Theme from './theme';
-
 
 const App: React.FC = () => {
   return(
