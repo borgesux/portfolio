@@ -6,6 +6,7 @@ export interface CustomTypeBackground extends TypeBackground {
   primary: string;
   secondary?: string;
   backgroundCustom?: string;
+  backgroundBorder?: string;
 }
 
 export interface customTypographyOptions extends Partial<TypeText> {
@@ -67,9 +68,10 @@ const Theme = createTheme({
       backgroundColor: {
         default: "#0E0F0F",
         primary: "#17191A",
-        secondary: "#26292B",
+        secondary: "#282829",
         backgroundCustom: '#000',
-        paper: "#000",
+        backgroundBorder: '#7a7164',
+        paper: "#0F0F0F",
       },
     },
   

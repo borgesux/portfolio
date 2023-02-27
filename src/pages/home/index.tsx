@@ -14,6 +14,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import ListItemCustom from '@components/listItemCustom';
 import TooltipCustom from '@components/tooltipCustom';
 import AvatarCustom from '@components/avatar';
+import NavBar from '@components/navbar';
+import ROUTES from '@config/routes';
 
 
 interface Props {
@@ -50,24 +52,45 @@ const data = {
     }
 }
 
+const links = [
+    {
+        label: "Sobre",
+        link: ROUTES.ABOUT,
+    },
+    {
+        label: "Resumo",
+        link: ROUTES.RESUME,
+    },
+    {
+        label: "Portfolio",
+        link: ROUTES.PORTFOLIO,
+    },
+    {
+        label: "Servico",
+        link: ROUTES.SERVICES,
+    },
+    {
+        label: "Contato",
+        link: ROUTES.CONTACT,
+    }
+]
 
 
 const Home: React.FC<Props> = ({ children, ...props }) => {
 
     const classes = useStyles();
 
-    
-
     return (
         <Grid className={classes.gridroot} >
-            <Grid container className={classes.gridcontainer}  gap={2.5}>
-                <Grid item xs={2.5} sx={{}}>
+            <Grid container className={classes.gridcontainer} gap={2.5}>
+
+                <Grid item xs={2.5}>
 
                     <Grid container flexDirection={"column"} alignItems={"center"} gap={1.5} 
                         sx={{
-                            background: (theme) => theme.palette.backgroundColor.primary, 
-                            border: (theme) => `2px solid ${theme.palette.backgroundColor.secondary}`,
-                            borderRadius: 2, 
+                                background: (theme) => theme.palette.backgroundColor.primary, 
+                                border: (theme) => `2px solid ${theme.palette.backgroundColor.backgroundBorder}`,
+                                borderRadius: 2, 
                             }}>
 
                         <Grid item display="flex" flexDirection="column" alignItems="center"  xs={12}>
@@ -131,8 +154,20 @@ const Home: React.FC<Props> = ({ children, ...props }) => {
                     </Grid>
  
                 </Grid>
-                <Grid item xs={8} >
-                    <h1> Bloco 2 </h1>
+
+                <Grid item xs={8}
+                    sx={{ 
+                            background: (theme) => theme.palette.backgroundColor.primary, 
+                            border: (theme) => `2px solid ${theme.palette.backgroundColor.backgroundBorder}`,
+                            borderRadius: "15px", 
+                        }}
+                >
+                    <Grid container justifyContent={"flex-end"}  sx={{border: "0px solid red"}}>
+                        <Grid item xs={6} sx={{border: "0px solid white", textAlign: "end"}} maxWidth={"fit-content !important"}> 
+                            <NavBar links={links}/> 
+                        </Grid>
+                    </Grid>
+
                 </Grid>
             </Grid>
         </Grid>
