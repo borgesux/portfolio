@@ -1,14 +1,19 @@
 import React from 'react';
 
+import Layout from '@components/layout';
+import { Grid, Typography } from '@mui/material';
+
 interface Props {
     children?: React.ReactNode;
 }
 
 const Contact: React.FC<Props> = ({ children, ...props }) => {
     return (
-        <>
-            <h1>Este bloco representa o componente Contact</h1>
-        </>
+        <Layout>
+            <Grid container>
+                <Grid item marginLeft={8}> <Typography variant="h3">Contato</Typography> </Grid>
+            </Grid>
+        </Layout>
     )
 }
 
