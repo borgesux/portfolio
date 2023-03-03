@@ -5,6 +5,7 @@ module.exports = function override(config) {
     ...config.resolve,
     alias: {
       ...config.alias,
+      "@assets": path.resolve(__dirname, "src/assets/"),
       "@modules": path.resolve(__dirname, "src/modules/"),
       "@ioc": path.resolve(__dirname, "src/ioc/"),
       "@context": path.resolve(__dirname, "src/context/"),

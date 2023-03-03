@@ -44,11 +44,11 @@ const Layout: React.FC<Props> = ({ children, ...props }) => {
     return (
         <Grid container justifyContent={"center"} gap={2} margin={4} sx={{ width: "auto" ,overflowX: "hidden"}}>
 
-            <Grid item xs={12} md={2.5} className={classes.griditem}>
+            <Grid item xs={12} md={10} lg={3} className={classes.griditem}>
                 <LeftSideContent/>
             </Grid>
 
-            <Grid item xs={12} md={8} className={classes.griditem}>
+            <Grid item xs={12} md={10} lg={8.5} className={classes.griditem}>
                 <Grid container xs={12} justifyContent={"flex-end"} > 
                     <Grid item>
                         <NavBar links={links}/>
