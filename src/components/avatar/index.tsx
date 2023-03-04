@@ -5,25 +5,43 @@ import { Theme, styled } from '@mui/material/styles';
 import { makeStyles,  } from '@mui/styles';
 
 import avatarIcon from "@assets/avatar.png";
+import { useResponsiveAvatarHeight, useResponsiveAvatarWidth } from '@utils/responsive';
 interface Props {
     children?: React.ReactNode;
 }
 
 const AvatarCustom: React.FC<Props> = ({ children, ...props }) => {
-    const classes = useStyles();
+    //const classes = useStyles();
     const theme = useTheme();
-    const isMiddleScreen = useMediaQuery(theme.breakpoints.up('lg'));
+    const responsiveWidthSize = useResponsiveAvatarWidth(theme);
+    const responsiveAvatarHeight = useResponsiveAvatarHeight(theme);
+    //const isMiddleScreen = useMediaQuery(theme.breakpoints.up('lg'));
     
     return (
         <Stack flexDirection={"column"} alignItems={"center"} style={{border: "0px solid red", padding: "0rem"}}>
-          <Box sx={{ background: (theme) => theme.palette.backgroundColor.secondary, borderRadius: "1.5rem", padding: "0.2rem", margin: 0 }}> 
+          <Box sx={{ 
+                background: (theme) => theme.palette.backgroundColor.secondary, 
+                borderRadius: "1rem", 
+                padding: "0.2rem", 
+                margin: 0 
+              }}
+            > 
             <StyledBadge
                   overlap="circular"
                   anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                   variant="dot"
                   sx={{ border: "0px solid white", width:"fit-content", }}
               >
-                <Avatar alt="Remy Sharp" src={avatarIcon} id="avatar" className={classes.avatar}  /> 
+                <Avatar 
+                  id="avatar"
+                  alt="Remy Sharp" 
+                  src={avatarIcon}
+                  style={{
+                    width: responsiveWidthSize,
+                    height: responsiveAvatarHeight
+                  }}   
+                  //className={classes.avatar}  
+                  /> 
                 
               </StyledBadge>
               

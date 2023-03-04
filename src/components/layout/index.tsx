@@ -42,9 +42,9 @@ const Layout: React.FC<Props> = ({ children, ...props }) => {
     const classes = useStyles();
 
     return (
-        <Grid container justifyContent={"center"} gap={2} margin={4} sx={{ width: "auto" ,overflowX: "hidden"}}>
+        <Grid container justifyContent={"center"} gap={2} margin={4} sx={{ width: "auto" ,overflow: "hidden"}}>
 
-            <Grid item xs={12} md={10} lg={3} className={classes.griditem}>
+            <Grid item xs={12} sm={10} md={10} lg={3} className={classes.griditem}>
                 <LeftSideContent/>
             </Grid>
 
@@ -64,7 +64,7 @@ export default Layout;
 
 const useStyles = makeStyles((theme: Theme) => ({
     griditem: {
-        background:  theme.palette.backgroundColor.primary, 
+        background: theme.palette.backgroundColor.primary, 
         border:`2px solid ${theme.palette.backgroundColor.backgroundBorder}`,
         borderRadius: 16, 
     },
