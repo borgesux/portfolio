@@ -1,13 +1,8 @@
 import React from "react";
 
 import {
-   Box,
-	Button,
 	Divider,
 	Grid,
-	IconButton,
-	Menu,
-	MenuItem,
 	Typography,
 	useMediaQuery,
 	useTheme,
@@ -17,21 +12,16 @@ import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined
 import PhoneIphoneOutlinedIcon from "@mui/icons-material/PhoneIphoneOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-
 import AvatarCustom from "@components/avatar";
-import ListItemCustom from "@components/listItemCustom";
 import SocialNavBar from "@components/socialNavBar";
+import CardInfo from "@components/cardsInfo";
+import CardInfoMobile from "@components/cardsInfo/mobile";
+
 import {
 	useResponsiveGap,
 	useResponsivePadding,
 	useResponsiveVariant,
 } from "@utils/responsive";
-import MenuMobile from "@components/cardsInfo/mobile";
-import LongMenu from "@components/cardsInfo/mobile";
-import CardInfo from "@components/cardsInfo";
-import CardInfoSingle from "@components/cardInfoSingle";
-import CardInfoMobile from "@components/cardsInfo/mobile";
 
 interface Props {
 	children?: React.ReactNode;
@@ -44,11 +34,10 @@ const LeftSideContent: React.FC<Props> = ({ children, ...props }) => {
 	const responsiveVariant = useResponsiveVariant(theme);
 	const responsivePadding = useResponsivePadding(theme);
 
-	const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
-
     const isExtraSmallScreen = useMediaQuery(theme.breakpoints.only('xs'));
 	const isSmallScreen = useMediaQuery(theme.breakpoints.only('sm'));
 	const isMiddleScreen = useMediaQuery(theme.breakpoints.only('md'));
+	const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
 
 	const dataProfile = {
 		title: "Jonathas Borges",
@@ -139,7 +128,7 @@ const LeftSideContent: React.FC<Props> = ({ children, ...props }) => {
 						<CardInfoMobile 
 							cards={cardsDataInfo} 
 							hasSocialNavBar={true} 
-							title={"Mais Informacoes"}
+							title={"Mais Informações"}
 						/>
 					) : (<></>)
 				}
@@ -148,38 +137,37 @@ const LeftSideContent: React.FC<Props> = ({ children, ...props }) => {
          	<Grid item xs={12} style={{ border: "0px solid red" }}>
 				<Grid container gap={responsiveGap}>
 
-					<Grid item  lg={12} style={{ border: "0x solid blue" ,padding: 4 }}>
+					<Grid item lg={12} style={{ border: "0x solid blue" ,padding: 4 }}>
 						<AvatarCustom />
 					</Grid>
 
-					<Grid container xs={6.5} lg={12}
-						alignSelf={"center"}
-						justifyContent={isLargeScreen ? "center" : "flex-start"}
-                  		style={{ border: "0px solid blue" }}
-						gap={0.5}
-					>
-						<Grid item xs={12}>
-							<Typography
-								variant={responsiveVariant}
-								textAlign={isLargeScreen ? "center" : "left"}
-							>
-								{dataProfile.title}
-							</Typography>
-						</Grid>
+					<Grid item xs={6.5} lg={12} 
+						sx={{   border: "0px solid red", 
+								display: "flex", alignSelf:"center", 
+								justifyContent: isLargeScreen ? "center" : "flex-start",  
+							}}>
 
-						<Grid
-							item
-							sx={{
-								background: (theme) =>
-								theme.palette.backgroundColor.secondary,
-								padding: "0.2rem 0.6rem 0.2rem 0.6rem",
-								//margin: "1rem 0rem 0rem 0rem",
-								borderRadius: 2,
-							}}
-						>
-							<Typography variant="subtitle1">{dataProfile.career}</Typography>
+						<Grid container sx={{ border: "0px solid blue" }} gap={0.5}>
+							<Grid item xs={12}>
+								<Typography variant={responsiveVariant} textAlign={isLargeScreen ? "center" : "left"}>
+									{dataProfile.title}
+								</Typography>
+							</Grid>
+
+							<Grid
+								item
+								sx={{
+									background: (theme) =>
+									theme.palette.backgroundColor.secondary,
+									padding: "0.2rem 0.6rem 0.2rem 0.6rem",
+									borderRadius: 2,
+								}}
+							>
+								<Typography variant="subtitle1">{dataProfile.career}</Typography>
+							</Grid>
 						</Grid>
 					</Grid>
+
 				</Grid>
 			</Grid>
 

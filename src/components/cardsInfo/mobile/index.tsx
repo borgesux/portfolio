@@ -1,12 +1,11 @@
 import * as React from 'react';
 
-import { Grid, Typography, Menu, MenuItem, IconButton , useMediaQuery, useTheme, Button } from '@mui/material';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Grid, Typography, Menu, MenuItem, IconButton , Button } from '@mui/material';
 
-import CardInfoSingle from '@components/cardInfoSingle';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SocialNavBar from '@components/socialNavBar';
 
-import { CardDateInfo } from '..';
+import CardInfo, { CardDateInfo } from '..';
 
 interface Props {
   children?: React.ReactNode;
@@ -16,9 +15,6 @@ interface Props {
 }
 
 const CardInfoMobile: React.FC<Props> = ({ ...props }) => {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.up('sm'));
-  const isMiddleScreen = useMediaQuery(theme.breakpoints.up('md'));
 
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const open = Boolean(anchorEl);
@@ -37,20 +33,28 @@ const CardInfoMobile: React.FC<Props> = ({ ...props }) => {
           <Button onClick={handleClick}            
             sx={{
               height: 0,
-              border:"1px solid #FFDB70",
+              background: (theme) => theme.palette.backgroundColor.secondary,
               borderRadius: "0px 24px 8px 24px",
-              padding: "0.8rem",
+              padding: "1rem",
               textTransform: "capitalize",
             }}
           >
             <Typography variant="subtitle2" 
-              sx={{color: (theme) => theme.typography.subtitle1,}}>
-                {props.title}
-              </Typography>
+              sx={{color: (theme) => theme.palette.textColor?.selected,}}
+            >
+              {props.title}
+            </Typography>
           </Button>
         : 
-          <IconButton onClick={handleClick} >
-              <MoreVertIcon sx={{color: (theme) => theme.typography.subtitle1, fontSize: "1rem"}} />
+          <IconButton onClick={handleClick} 
+            sx={{
+              background: (theme) => theme.palette.backgroundColor.secondary,
+              height: 0,
+              borderRadius: "0px 24px 8px 24px",
+              padding: "0.8rem",
+            }}
+          >
+            <KeyboardArrowDownIcon sx={{color: (theme) => theme.palette.textColor?.selected, fontSize: "1rem"}} />
           </IconButton>
       }
 
@@ -62,7 +66,7 @@ const CardInfoMobile: React.FC<Props> = ({ ...props }) => {
         {props.cards?.map( (cardInfo, cardIndex) => {
           return(
           <MenuItem key={cardIndex} onClick={handleClose}>
-            <CardInfoSingle card={cardInfo}></CardInfoSingle>
+            <CardInfo cards={[cardInfo]}></CardInfo>
           </MenuItem>
           )
         })}

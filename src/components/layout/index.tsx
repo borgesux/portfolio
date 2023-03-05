@@ -42,14 +42,14 @@ const Layout: React.FC<Props> = ({ children, ...props }) => {
     const classes = useStyles();
 
     return (
-        <Grid container justifyContent={"center"} gap={2} margin={0.8} sx={{ width: "auto" ,overflow: "hidden"}}>
+        <Grid container justifyContent={"center"} sx={{ width: "auto" ,overflow: "hidden", margin: 0.8}}  gap={2}>
 
             <Grid item xs={12} sm={10} md={10} lg={2.5} className={classes.griditem}>
                 <LeftSideContent/>
             </Grid>
 
             <Grid item xs={12} sm={10} md={10} lg={8.5} className={classes.griditem}>
-                <Grid container xs={12} justifyContent={"flex-end"} > 
+                <Grid container justifyContent={"flex-end"} > 
                     <Grid item>
                         <NavBar links={links}/>
                     </Grid>     

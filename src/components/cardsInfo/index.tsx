@@ -15,19 +15,26 @@ interface Props {
 const CardInfo: React.FC<Props> = ({ children, ...props }) => {
     return (
         <>
-            {props.cards?.map( (card) => {
+            {props.cards?.map( (card, cardIndex) => {
                 return (
-                    <ListItem>
+                    <ListItem key={cardIndex}>
                         
                         <ListItemAvatar>
-                            <Avatar sx={{background: (theme) => theme.palette.backgroundColor.secondary, borderRadius: 2}}>
+                            <Avatar 
+                                sx={{
+                                    background: (theme) => theme.palette.backgroundColor.primary, 
+                                    backgroundImage: 'linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%)',
+                                    borderRadius: 2,
+                                    border: (theme) =>`1px solid ${theme.palette.backgroundColor.secondary} `,
+                                    
+                                }}>
                                 {card.icon}
                             </Avatar>
                         </ListItemAvatar>
                         
                         <ListItemText  
                             primary = {
-                                <Typography fontWeight={700} sx={{opacity: 0.6}}>
+                                <Typography fontWeight={700} sx={{opacity: 0.6, textTransform: "uppercase"}}>
                                     {card.label}
                                 </Typography>}
                             secondary = {

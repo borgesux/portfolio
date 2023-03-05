@@ -22,9 +22,9 @@ const NavBar: React.FC<Props> = ({ children, ...props }) => {
                 background: (theme) => theme.palette.backgroundColor.secondary,
                 borderRadius: "0 15px",
             }}     >  
-        {props.links?.map( (item) => {
+        {props.links?.map( (item ,itemIndex) => {
             return(
-                <MenuItem>
+                <MenuItem key={itemIndex}>
                     <Button component={RouterLink} to={item.link}>
                         <Typography variant="subtitle1"
                             sx={{ 

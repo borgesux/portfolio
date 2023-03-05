@@ -33,7 +33,7 @@ const Theme = createTheme({
       fontFamily: [ 'Poppins', 'Montserrat' ,'sans-serif'].join(','),
       fontSize: 8,
       subtitle1:{
-        color: "#FFDB70",
+        //color: "#FFDB70",
       }
     },
     palette: {
