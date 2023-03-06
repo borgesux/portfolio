@@ -34,11 +34,11 @@ const CardInfo: React.FC<Props> = ({ children, ...props }) => {
                         
                         <ListItemText  
                             primary = {
-                                <Typography fontWeight={700} sx={{opacity: 0.6, textTransform: "uppercase"}}>
+                                <Typography variant="subtitle1" fontWeight={700} sx={{opacity: 0.6, textTransform: "uppercase"}}>
                                     {card.label}
                                 </Typography>}
                             secondary = {
-                                <Typography variant="subtitle2" fontWeight={400}>
+                                <Typography variant="h6" fontWeight={400}>
                                     {card.value}
                                 </Typography>}
                         />

@@ -14,9 +14,10 @@ const Services: React.FC<Props> = ({ children, ...props }) => {
         <Layout>
             <Grid container>
                 <Grid item marginLeft={4} marginBottom={4}> 
-                    <Typography variant="h3">Servicos</Typography> 
+                    <Typography variant="h3" fontWeight={700}>Servicos</Typography> 
                     <DividerHigh/>
                 </Grid>
+
             </Grid>
         </Layout>
     )

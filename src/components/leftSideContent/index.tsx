@@ -47,7 +47,7 @@ const LeftSideContent: React.FC<Props> = ({ children, ...props }) => {
 	const cardsDataInfo = [
       {
          label: "Email",
-         value: "jonathasborgesux@gmail.com",
+         value: "jbc@icomp.ufam.edu.com",
          icon: (
 			<MarkEmailReadOutlinedIcon
 				sx={{
@@ -87,7 +87,7 @@ const LeftSideContent: React.FC<Props> = ({ children, ...props }) => {
 		<Grid container gap={1}>
 
 			<Grid item xs={12}>
-				<Divider  variant={"middle"}
+				<Divider variant={"middle"}
 					sx={{
 						background: (theme) => theme.palette.backgroundColor.secondary,
 						width: "10rem",

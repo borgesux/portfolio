@@ -113,7 +113,7 @@ export const useResponsiveAvatarWidth = (theme) => {
   const isMiddleScreen = useMediaQuery(theme.breakpoints.up('md'));
   const isSmallScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
-  const LARGE_SCREEN_AVATAR_WIDTH = "6rem";
+  const LARGE_SCREEN_AVATAR_WIDTH = "7.5rem";
   const MIDDLE_SCREEN_AVATAR_WIDTH = "5rem";
   const SMALL_SCREEN_AVATAR_WIDTH = "5rem";
   const DEFAULT_AVATAR_WIDTH = "4rem";
@@ -140,7 +140,7 @@ export const useResponsiveAvatarHeight = (theme) => {
   const isMiddleScreen = useMediaQuery(theme.breakpoints.up('md'));
   const isSmallScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
-  const LARGE_SCREEN_AVATARHEIGHT = "6rem";
+  const LARGE_SCREEN_AVATARHEIGHT = "7rem";
   const MIDDLE_SCREEN_AVATARHEIGHT = "5rem";
   const SMALL_SCREEN_AVATARHEIGHT = "5rem";
   const DEFAULT_AVATARHEIGHT = "4rem";

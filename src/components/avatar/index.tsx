@@ -11,7 +11,7 @@ interface Props {
 const AvatarCustom: React.FC<Props> = ({ children, ...props }) => {
 
     const theme = useTheme();
-    const responsiveWidthSize = useResponsiveAvatarWidth(theme);
+    const responsiveAvatarWidth = useResponsiveAvatarWidth(theme);
     const responsiveAvatarHeight = useResponsiveAvatarHeight(theme);
     
     return (
@@ -34,7 +34,7 @@ const AvatarCustom: React.FC<Props> = ({ children, ...props }) => {
                   alt="Remy Sharp" 
                   src={avatarIcon}
                   style={{
-                    width: responsiveWidthSize,
+                    width: responsiveAvatarWidth,
                     height: responsiveAvatarHeight
                   }}   
                   //className={classes.avatar}  

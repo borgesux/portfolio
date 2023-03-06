@@ -16,7 +16,7 @@ interface Props {
 
 const links = [
     {
-        label: "Sobre",
+        label: "Home",
         link: ROUTES.HOME,
     },
     {
