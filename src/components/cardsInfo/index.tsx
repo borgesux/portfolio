@@ -1,4 +1,4 @@
-import { Avatar, ListItem, ListItemAvatar, ListItemText, Typography } from '@mui/material';
+import { Avatar, List, ListItem, ListItemAvatar, ListItemText, Typography } from '@mui/material';
 import React from 'react';
 
 export interface CardDateInfo {
@@ -14,7 +14,7 @@ interface Props {
 
 const CardInfo: React.FC<Props> = ({ children, ...props }) => {
     return (
-        <>
+        <List>
             {props.cards?.map( (card, cardIndex) => {
                 return (
                     <ListItem key={cardIndex}>
@@ -46,7 +46,7 @@ const CardInfo: React.FC<Props> = ({ children, ...props }) => {
                 );
             })}
 
-        </>
+        </List>
     )
 }
 
