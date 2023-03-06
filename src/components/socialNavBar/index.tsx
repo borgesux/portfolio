@@ -5,7 +5,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 
-import TooltipCustom from '@components/tooltipCustom';
+import TooltipCustom from '@components/tooltip';
 
 
 interface Props {

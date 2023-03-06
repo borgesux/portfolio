@@ -39,7 +39,7 @@ const LeftSideContent: React.FC<Props> = ({ children, ...props }) => {
 	const isMiddleScreen = useMediaQuery(theme.breakpoints.only('md'));
 	const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
 
-	const dataProfile = {
+	const profileData = {
 		title: "Jonathas Borges",
 		career: "Web Developer",
 	};
@@ -57,7 +57,7 @@ const LeftSideContent: React.FC<Props> = ({ children, ...props }) => {
 			/>
 		),
       },
-	  {
+	   {
 		label: "Telefone",
 		value: "(+55) 92 9 8203-542",
 		icon: (
@@ -68,22 +68,22 @@ const LeftSideContent: React.FC<Props> = ({ children, ...props }) => {
 				}}
 			/>
 		),
-	 },
-	 {
-		label: "Localização",
-		value: "Brasil - Manaus",
-		icon: (
-			<LocationOnOutlinedIcon
-				sx={{
-					color: (theme) => theme.palette.textColor?.selected,
-					borderRadius: 2,
-				}}
-			/>
-		),
-	 },
+      },
+      {
+         label: "Localização",
+         value: "Brasil - Manaus",
+         icon: (
+            <LocationOnOutlinedIcon
+               sx={{
+                  color: (theme) => theme.palette.textColor?.selected,
+                  borderRadius: 2,
+               }}
+            />
+         ),
+      },
     ]
 
-	const desktopVersion = (
+	const cardsInfoDesktopVersion = (
 		<Grid container gap={1}>
 
 			<Grid item xs={12}>
@@ -111,30 +111,31 @@ const LeftSideContent: React.FC<Props> = ({ children, ...props }) => {
 		</Grid>
 	)
 
+   const cardsInfoTabletVersion = (
+      <CardInfoMobile 
+         cards={cardsDataInfo} 
+         hasSocialNavBar={true} 
+         title={"Mais Informações"}
+      />
+   )
+
+   const cardsInfoMobileVersion = (
+      <CardInfoMobile 
+         cards={cardsDataInfo} 
+         hasSocialNavBar={true} 
+      />
+   );
+
 	return (
 		<Grid container style={{ padding: responsivePadding, border: "0px solid white" }}>
          
-		 	{/* Exibi cardsInfo e social icons apenas na versao mobile - 0px a 600px */}
-			{/* Exibi uma pequena variacao entre 600px a 1199px */}
-		 	<Grid item xs={12} style={{ border: "0px solid red" }}>
-				{isExtraSmallScreen ? 
-					(
-						<CardInfoMobile 
-							cards={cardsDataInfo} 
-							hasSocialNavBar={true} 
-						/>
-					)
-					: isSmallScreen || isMiddleScreen ? (
-						<CardInfoMobile 
-							cards={cardsDataInfo} 
-							hasSocialNavBar={true} 
-							title={"Mais Informações"}
-						/>
-					) : (<></>)
-				}
-			</Grid>
+		 	{/* Exibir cardsInfo e social icons apenas na versao mobile - 0px a 600px */}
+         {isExtraSmallScreen ? cardsInfoMobileVersion : (<></>)}
 
-         	<Grid item xs={12} style={{ border: "0px solid red" }}>
+         {/* Exibir uma pequena variacao do cardsInfo entre 600px a 1199px */}
+         {isSmallScreen || isMiddleScreen ? cardsInfoTabletVersion : (<></>)}
+         
+         <Grid item xs={12}>
 				<Grid container gap={responsiveGap}>
 
 					<Grid item lg={12} style={{ border: "0x solid blue" ,padding: 4 }}>
@@ -142,28 +143,32 @@ const LeftSideContent: React.FC<Props> = ({ children, ...props }) => {
 					</Grid>
 
 					<Grid item xs={6.5} lg={12} 
-						sx={{   border: "0px solid red", 
+						sx={{ 
 								display: "flex", alignSelf:"center", 
 								justifyContent: isLargeScreen ? "center" : "flex-start",  
 							}}>
 
-						<Grid container sx={{ border: "0px solid blue" }} gap={0.5}>
-							<Grid item xs={12}>
-								<Typography variant={responsiveVariant} textAlign={isLargeScreen ? "center" : "left"}>
-									{dataProfile.title}
+						<Grid container sx={{ border: "0px solid blue" }} gap={0.5} textAlign={isLargeScreen ? "center" : "left"}>
+							
+                     <Grid item xs={12}>
+								<Typography variant={responsiveVariant} >
+									{profileData.title}
 								</Typography>
 							</Grid>
 
-							<Grid
-								item
-								sx={{
-									background: (theme) =>
-									theme.palette.backgroundColor.secondary,
-									padding: "0.2rem 0.6rem 0.2rem 0.6rem",
-									borderRadius: 2,
-								}}
-							>
-								<Typography variant="subtitle1">{dataProfile.career}</Typography>
+							<Grid item xs={12}>
+                        <Grid container justifyContent={isLargeScreen ? "center" : "left"}>
+                           <Grid item 
+                              sx={{
+                                 background: (theme) => theme.palette.backgroundColor.secondary,
+                                 padding: "0.2rem 0.6rem 0.2rem 0.6rem",
+                                 borderRadius: 2,
+                              }}
+                           >
+                              <Typography variant="subtitle1">{profileData.career}</Typography>
+                           </Grid>
+                        </Grid>
+
 							</Grid>
 						</Grid>
 					</Grid>
@@ -173,9 +178,7 @@ const LeftSideContent: React.FC<Props> = ({ children, ...props }) => {
 
 			{/* Esconde cardsInfo e social icons na versao mobile e tablet */}
 			{/* Exibi social icons apenas em versoes acima de 1200px */}
-			<Grid item xs={12} style={{ border: "0px solid red" }}>
-				{isLargeScreen ? (desktopVersion) : (<></>)}
-			</Grid>
+			<Grid item xs={12}> {isLargeScreen ? (cardsInfoDesktopVersion) : (<></>)}</Grid>
 
 		</Grid>
 	);

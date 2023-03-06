@@ -5,6 +5,7 @@ export interface CustomTypeBackground extends TypeBackground {
   default: string;
   primary: string;
   secondary?: string;
+  highlighted?: string;
   backgroundCustom?: string;
   backgroundBorder?: string;
 }
@@ -69,6 +70,7 @@ const Theme = createTheme({
         default: "#0E0F0F",
         primary: "#17191A",
         secondary: "#282829",
+        highlighted: "#FFDB70",
         backgroundCustom: '#000',
         backgroundBorder: '#7a7164',
         paper: "#0F0F0F",

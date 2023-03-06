@@ -1,21 +1,18 @@
 import React from 'react';
 
-import { Avatar, Badge, Box, Stack, useMediaQuery, useTheme } from '@mui/material';
-import { Theme, styled } from '@mui/material/styles';
-import { makeStyles,  } from '@mui/styles';
+import { Avatar, Badge, Box, Stack, useTheme, styled } from '@mui/material';
 
-import avatarIcon from "@assets/avatar.png";
 import { useResponsiveAvatarHeight, useResponsiveAvatarWidth } from '@utils/responsive';
+import avatarIcon from "@assets/avatar.png";
 interface Props {
     children?: React.ReactNode;
 }
 
 const AvatarCustom: React.FC<Props> = ({ children, ...props }) => {
-    //const classes = useStyles();
+
     const theme = useTheme();
     const responsiveWidthSize = useResponsiveAvatarWidth(theme);
     const responsiveAvatarHeight = useResponsiveAvatarHeight(theme);
-    //const isMiddleScreen = useMediaQuery(theme.breakpoints.up('lg'));
     
     return (
         <Stack flexDirection={"column"} alignItems={"center"} style={{border: "0px solid red", padding: "0rem"}}>
@@ -81,19 +78,3 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     },
 }));
 
-const useStyles = makeStyles((theme: Theme) => ({
-    stackroot: {
-        width: "100%",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems:"center",
-        border: "2px solid white",
-    },
-    avatar: {
-        "&#avatar" : {
-          width: "6rem",
-          height: "6rem",
-        }
-    },
-}));

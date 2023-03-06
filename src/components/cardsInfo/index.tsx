@@ -14,7 +14,7 @@ interface Props {
 
 const CardInfo: React.FC<Props> = ({ children, ...props }) => {
     return (
-        <List>
+        <List sx={{padding: 0}}>
             {props.cards?.map( (card, cardIndex) => {
                 return (
                     <ListItem key={cardIndex}>

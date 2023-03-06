@@ -48,8 +48,8 @@ const Layout: React.FC<Props> = ({ children, ...props }) => {
                 <LeftSideContent/>
             </Grid>
 
-            <Grid item xs={12} sm={10} md={10} lg={8.5} className={classes.griditem}>
-                <Grid container justifyContent={"flex-end"} > 
+            <Grid item xs={12} sm={10} md={10} lg={8} className={classes.griditem}>
+                <Grid container justifyContent={"flex-end"} height={"3rem"} > 
                     <Grid item>
                         <NavBar links={links}/>
                     </Grid>     
