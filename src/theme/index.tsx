@@ -1,7 +1,5 @@
 import { TypeBackground } from "@mui/material";
-import { ThemeOptions, TypeText, createTheme,  } from '@mui/material/styles';
-// import { TypographyOptions } from '@mui/material/styles';
-// import { Variant } from "@mui/material/styles/createTypography";
+import { TypeText, createTheme,  } from '@mui/material/styles';
 
 export interface CustomTypeBackground extends TypeBackground {
   default: string;
@@ -11,7 +9,6 @@ export interface CustomTypeBackground extends TypeBackground {
   backgroundCustom?: string;
   backgroundBorder?: string;
 }
-
 export interface customTypographyOptions extends Partial<TypeText> {
   default: string;
   selected?: string;
@@ -20,12 +17,7 @@ export interface customTypographyOptions extends Partial<TypeText> {
 }
 
 declare module '@mui/material/styles' {
-  // interface Typography {
-  //   letterSpacing?: React.CSSProperties['letterSpacing'];
-  // }
-  // interface TypographyOptionsCustom extends TypographyOptions {
-  //   letterSpacing?: React.CSSProperties['letterSpacing'];
-  // }
+
   interface Palette { // Serve para conseguirmos acessar o atributo personalizado - Ex: theme.palette.backgroundColor?.primary
     backgroundColor: CustomTypeBackground;
     textColor?: customTypographyOptions;
@@ -45,7 +37,6 @@ const Theme = createTheme({
       fontWeightRegular: 400,
       fontWeightMedium: 600,
       fontWeightBold: 800,
-      //letterSpacing: '0.05em', 
       subtitle1:{
         //color: "#FFDB70",
       }
